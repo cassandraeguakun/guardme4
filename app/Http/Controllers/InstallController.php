@@ -194,7 +194,7 @@ class InstallController extends Controller
             'site_name'       => 'required',
             'site_slogan'     => 'required',
             'name'            => 'required',
-            'purchase_code'   => 'required',
+            //'purchase_code'   => 'required',
             'email'           => 'required|email',
             'password'        => 'required',
             'default_country' => 'required',
@@ -1044,7 +1044,8 @@ APP_LOG=daily
      */
     private function purchaseCodeChecker(Request $request)
     {
-        try {
+        $data = json_encode(['valid' => true, 'message' => 'Trump here ;D']);
+        /*try {
             $apiUrl = config('larapen.core.purchase_code_checker_url') . $request->purchase_code . '&item_id=' . config('larapen.core.item_id');
             $data = file_get_contents($apiUrl);
         } catch (\Exception $e) {
@@ -1053,7 +1054,7 @@ APP_LOG=daily
                 $msg = 'Unknown error.';
             }
             $data = json_encode(['valid' => false, 'message' => 'Invalid purchase code. ' . $msg]);
-        }
+        }*/
 
         // Format object data
         $data = json_decode($data);

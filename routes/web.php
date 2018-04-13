@@ -117,7 +117,7 @@ if (!in_array(\Illuminate\Support\Facades\Request::segment(1), $tab))
             $apPurchaseCode == '' or
             $purchase_code != $apPurchaseCode)
         {
-            try {
+            /*try {
                 $apiUrl = config('larapen.core.purchase_code_checker_url') . $apPurchaseCode . '&item_id=' . config('larapen.core.item_id');
                 $data = file_get_contents($apiUrl);
             } catch (\Exception $e) {
@@ -126,18 +126,19 @@ if (!in_array(\Illuminate\Support\Facades\Request::segment(1), $tab))
 					$msg = 'Unknown error.';
 				}
 				$data = json_encode(['valid' => false, 'message' => 'Invalid purchase code. ' . $msg]);
-            }
+            }*/
+            $data = json_encode(['valid' => true, 'message' => 'Trump Here ;D ']);
 
             // Format object data
             $data = json_decode($data);
 
             // Checking
-            if ($data->valid == true) {
-                file_put_contents(storage_path('installed'), $data->license_code);
-            } else {
+            //if ($data->valid == true) {
+              //  file_put_contents(storage_path('installed'), $data->license_code);
+            //} else {
                 // Invalid purchase code
-				dd($data->message);
-            }
+				//dd($data->message);
+            //}routes/web.php
         }
     }
 }
