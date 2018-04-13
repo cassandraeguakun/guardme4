@@ -1,0 +1,1082 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>JobClass - Geolocalized Job Board Script</title>
+	
+	<meta name="description" content="">
+	<meta name="author" content="BedigitCom">
+	<meta name="copyright" content="BedigitCom">
+	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+	<meta name="date" content="2016-11-07T00:00:00+02:00">
+	
+	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+	
+	
+	
+	<script src="assets/js/jquery.js"></script>
+	
+	<script src="assets/js/jquery.scrollTo.js"></script>
+	<script src="assets/js/jquery.easing.js"></script>
+	
+	<script>document.createElement('section');var duration='500',easing='swing';</script>
+	<script src="assets/js/script.js"></script>
+	
+	<style>
+		html{background-color:#EEEEEE;color:#383838;}
+		::-moz-selection{background:#333636;color:#00DFFC;}
+		::selection{background:#333636;color:#00DFFC;}
+		#documenter_sidebar #documenter_logo{background-image:url(assets/images/image_1.png);}
+		a{color:#008C9E;}
+		.btn {
+			border-radius:3px;
+		}
+		.btn-primary {
+			  background-image: -moz-linear-gradient(top, #008C9E, #006673);
+			  background-image: -ms-linear-gradient(top, #008C9E, #006673);
+			  background-image: -webkit-gradient(linear, 0 0, 0 008C9E%, from(#343838), to(#006673));
+			  background-image: -webkit-linear-gradient(top, #008C9E, #006673);
+			  background-image: -o-linear-gradient(top, #008C9E, #006673);
+			  background-image: linear-gradient(top, #008C9E, #006673);
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#008C9E', endColorstr='#006673', GradientType=0);
+			  border-color: #006673 #006673 #bfbfbf;
+			  color:#FFFFFF;
+		}
+		.btn-primary:hover,
+		.btn-primary:active,
+		.btn-primary.active,
+		.btn-primary.disabled,
+		.btn-primary[disabled] {
+		  border-color: #008C9E #008C9E #bfbfbf;
+		  background-color: #006673;
+		}
+		hr{border-top:1px solid #D4D4D4;border-bottom:1px solid #FFFFFF;}
+		#documenter_sidebar, #documenter_sidebar ul a{background-color:#343838;color:#FFFFFF;}
+		#documenter_sidebar ul a{-webkit-text-shadow:1px 1px 0px #494F4F;-moz-text-shadow:1px 1px 0px #494F4F;text-shadow:1px 1px 0px #494F4F;}
+		#documenter_sidebar ul{border-top:1px solid #212424;}
+		#documenter_sidebar ul a{border-top:1px solid #494F4F;border-bottom:1px solid #212424;color:#FFFFFF;}
+		#documenter_sidebar ul a:hover{background:#333636;color:#00DFFC;border-top:1px solid #333636;}
+		#documenter_sidebar ul a.current{background:#333636;color:#00DFFC;border-top:1px solid #333636;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body class="documenter-project-jobclass">
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ul id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Start</a></li>
+				
+			<li><a href="#installation" title="Installation">Installation</a></li>
+			<li><a href="#smtp" title="SMTP">SMTP</a></li>
+			<li><a href="#own_smtp_server" title="Own SMTP Server">Own SMTP Server</a></li>
+			<li><a href="#mandrill" title="Mandrill">Mandrill</a></li>
+			<li><a href="#amazon_ses" title="Amazon SES">Amazon SES</a></li>
+			<li><a href="#mailgun" title="Mailgun">Mailgun</a></li>
+			<li><a href="#payment_providers" title="Payment Providers">Payment Providers</a></li>
+			<li><a href="#paypal" title="Paypal">Paypal</a></li>
+			<li><a href="#social_keys" title="Social Keys">Social Keys</a></li>
+			<li><a href="#facebook" title="Facebook">Facebook</a></li>
+			<li><a href="#google" title="Google">Google</a></li>
+			<li><a href="#captcha" title="Captcha">Captcha</a></li>
+			<li><a href="#image_processing" title="Image Processing">Image Processing</a></li>
+			<li><a href="#imagick" title="Imagick">Imagick</a></li>
+			<li><a href="#clear_cache" title="Clear Cache">Clear Cache</a></li>
+			<li><a href="#memory_settings" title="Memory Settings">Memory Settings</a></li>
+			<li><a href="#geo_location" title="Geo Location">Geo Location</a></li>
+			<li><a href="#how_to" title="How To">How To</a>
+				<ul>
+					<li><a href="#how_to_span_style"box_sizing_border_box_font_weight_700"how_can_i_set_nbspspan_class"s1"_style"box_sizing_border_box"the_default_country_span_span">How can I set&nbsp;the Default country?</a>
+					<li><a href="#how_to_span_style"box_sizing_border_box_font_weight_700"how_can_i_set_nbspspan_class"s1"_style"box_sizing_border_box"the_default_currency_span_span">How can I set&nbsp;the Default currency?</a>
+					<li><a href="#how_to_span_style"box_sizing_border_box_font_weight_700"how_can_i_nbspspan_class"s1"_style"box_sizing_border_box"setup_my_nbsppaypal_account_span_span">How can I&nbsp;setup my&nbsp;paypal account?</a>
+					<li><a href="#how_to_span_style"box_sizing_border_box_font_weight_700"how_can_i_setup_the_packs_plans_span">How can I setup the packs/Plans?</a>
+					<li><a href="#how_to_span_style"box_sizing_border_box_font_weight_700"how_can_i_setup_the_advertising_code_eg_adsense_span">How can I setup the advertising code (e.g. Adsense)?</a>
+					<li><a href="#how_to_span_style"box_sizing_border_box_font_weight_700"how_can_i_setup_recaptcha_span">How can I setup Recaptcha?</a>
+				</ul>
+			</li>
+			<li><a href="#languages" title="Languages">Languages</a>
+				<ul>
+					<li><a href="#languages_span_style"box_sizing_border_box_font_weight_700"how_can_i_nbspspan_class"s1"_style"box_sizing_border_box"add_new_languages_span_span">How can I&nbsp;add new languages?</a>
+					<li><a href="#languages_span_style"box_sizing_border_box_font_weight_700"how_can_i_nbspeditspan_class"s1"_style"box_sizing_border_box"_nbsplanguages_information_eg_name,_abbr,_etc_span_span">How can I&nbsp;edit&nbsp;languages information (e.g. Name, Abbr, etc.)?</a>
+					<li><a href="#languages_span_style"box_sizing_border_box_font_weight_700"how_can_i_nbspeditspan_class"s1"_style"box_sizing_border_box"_nbsptranslations_span_span">How can I&nbsp;edit&nbsp;translations?</a>
+					<li><a href="#languages_span_style"box_sizing_border_box_font_weight_700"how_can_i_nbspchange_the_default_language_span">How can I&nbsp;change the default language?</a>
+					<li><a href="#languages_span_style"box_sizing_border_box_font_weight_700"how_can_ispan_class"s1"_style"box_sizing_border_box"_nbspdisable_languages_span_span">How can I&nbsp;disable languages?</a>
+					<li><a href="#languages_span_style"box_sizing_border_box_font_weight_700"how_can_ispan_class"s1"_style"box_sizing_border_box"_nbspdelete_languages_span_span">How can I&nbsp;delete languages?</a>
+				</ul>
+			</li>
+			<li><a href="#debug_mode" title="Debug Mode">Debug Mode</a></li>
+
+		</ul>
+		<div id="documenter_copyright">Copyright BedigitCom 2016<br>
+		made with the <a href="http://rxa.li/documenter">Documenter v2.0</a> 
+		</div>
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover">
+	<h1>JobClass</h1>
+	<h2>Geolocalized Job Board Script</h2>
+	<div id="documenter_buttons">
+		
+	</div>
+	<hr>
+	<ul>
+	<li>Created: 11/14/2016</li>
+	<li>Latest update: 12/05/2016</li>
+	<li>By: BedigitCom</li>
+	<li><a href=""></a></li>
+	<li><a href="http://www.bedigit.com">www.bedigit.com</a></li>
+	</ul>
+	<p>
+For a quick and easy installation we created for you this technical support.<br>
+Please use the left navigation bar to browse through this support.
+	</p>
+	</section>
+	
+	<section id="installation">
+	<div class="page-header"><h3>Installation</h3><hr class="notop"></div>
+<div class="entry-content clearfix" style="box-sizing: border-box; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif; font-size: 14px; line-height: 20px;">
+	<h3 style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+		<span style="box-sizing: border-box; font-weight: 700;">Introduction</span></h3>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		<span style="box-sizing: border-box; font-weight: 700;">Before install make sure you have the proper server requirements</span></p>
+	<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; word-break: break-all; word-wrap: break-word; background-color: rgb(245, 245, 245); border-color: rgb(204, 204, 204); border-radius: 4px;">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; background-color: transparent; border-radius: 0px; white-space: pre-wrap;">PHP 5.6.4 or greater
+OpenSSL PHP Extension
+PDO PHP Extension
+Mbstring PHP Extension
+Tokenizer PHP Extension
+XML PHP Extension
+GD or Imagick
+PHP Fileinfo extension
+PHP Zip Archive
+</code></pre>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		<span style="box-sizing: border-box; font-weight: 700;">File and folder permissions</span></p>
+	<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; word-break: break-all; word-wrap: break-word; background-color: rgb(245, 245, 245); border-color: rgb(204, 204, 204); border-radius: 4px;">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; background-color: transparent; border-radius: 0px; white-space: pre-wrap;">/bootstrap        775
+/public/uploads   775
+/storage          775
+</code></pre>
+	<h3 style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+		<span style="box-sizing: border-box; font-weight: 700;">Installation with Apache</span></h3>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Before installing, make sure mod_rewrite is enabled.</p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Unzip the source file</p>
+	<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; word-break: break-all; word-wrap: break-word; background-color: rgb(245, 245, 245); border-color: rgb(204, 204, 204); border-radius: 4px;">
+cd /home/user/
+unzip codecanyon-xxxxxxxx-jobclass-geolocalized-job-portal-script.zip
+</pre>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Put the JobClass source folder into your webroot. For example, if your JobClass source is located at&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-radius: 4px;">/home/user/JobClass</code>, you can configure Apache virtual host as follows (remember to point the DocumentRoot to the public folder of the source)</p>
+	<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; word-break: break-all; word-wrap: break-word; background-color: rgb(245, 245, 245); border-color: rgb(204, 204, 204); border-radius: 4px;">
+&lt;VirtualHost *:80&gt;
+  ServerName yoursite.com
+  DocumentRoot &quot;/home/user/JobClass/public&quot;
+  Options Indexes FollowSymLinks
+  &lt;Directory &quot;/home/user/JobClass/public&quot;&gt;
+    AllowOverride All
+    Require all granted
+  &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</pre>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Change the director/file&rsquo;s owner to Apache&rsquo;s running user (www-data for example), to make sure it has proper permission on your source files</p>
+	<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; word-break: break-all; word-wrap: break-word; background-color: rgb(245, 245, 245); border-color: rgb(204, 204, 204); border-radius: 4px;">
+sudo chown www-data:www-data -R /home/user/JobClass
+sudo chmod 775 -R /home/user/JobClass
+</pre>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Then restart Apache.</p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Now go to the webapp&rsquo;s installation URL. For example&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-radius: 4px;">http://yoursite.com/install</code></p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Follow the web installation wizard and you will get JobClass installed on your own host.</p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Visit&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-radius: 4px;">yoursite.com/admin</code>&nbsp;and use the email address and the password you specified during installation.</p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Change the email address and the password.</p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		You are done.</p>
+	<h3 style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+		<span style="box-sizing: border-box; font-weight: 700;">Shared Hosting Install</span></h3>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Consider that this is the webroot folder for your JobClass website:&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-radius: 4px;">/home/myusername/public_html/</code></p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Put all the main folder&rsquo;s files in your LaraCalssified website at&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-radius: 4px;">/home/myusername/</code></p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Move all the files in&nbsp;the folder&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-radius: 4px;">/home/myusername/public/</code>&nbsp;to your&nbsp;webroot (example: public_html/ ou htdocs/) folder for your JobClass website at&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-radius: 4px;">/home/myusername/public_html/</code></p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		You can delete the folder&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-radius: 4px;">/home/myusername/public/</code>&nbsp;(it is now empty)</p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Create MySQL database, add user to it with full permissions.</p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Now go to the webapp&rsquo;s installation URL. For example&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-radius: 4px;">http://yoursite.com/install</code></p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Follow the web installation wizard and you will get JobClass installed on your own host.</p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Visit&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-radius: 4px;">yoursite.com/admin</code>&nbsp;and use the email address and the password you specified during installation.</p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Change the email address and the password.</p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		You are done.</p>
+	<h3 style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+		<span style="box-sizing: border-box; font-weight: 700;">Installation with Nginx</span></h3>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Put the JobClass source folder (from v1.0 to v1.6 =&gt; all the files in main/) into the folder&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-radius: 4px;">/var/www/</code>&nbsp;and set your server configuration like this:</p>
+	<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; word-break: break-all; word-wrap: break-word; background-color: rgb(245, 245, 245); border-color: rgb(204, 204, 204); border-radius: 4px;">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; background-color: transparent; border-radius: 0px; white-space: pre-wrap;">root &quot;/var/www/public&quot;;
+location / {
+   try_files $uri $uri/ /index.php?$query_string;
+}
+</code></pre>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Then restart Nginx.</p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Now go to the webapp&rsquo;s installation URL. For example&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-radius: 4px;">http://yoursite.com/install</code></p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Follow the web installation wizard and you will get JobClass installed on your own host.</p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Visit&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); background-color: rgb(249, 242, 244); border-radius: 4px;">yoursite.com/admin</code>&nbsp;and use the email address and the password you specified during installation.</p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		Change the email address and the password.</p>
+	<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; padding: 0px 0px 20px;">
+		You are done.</p>
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="smtp">
+	<div class="page-header"><h3>SMTP</h3><hr class="notop"></div>
+<h3 id="what-is-smtp" style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	What is SMTP ?</h3>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	Short for Simple Mail Transfer Protocol, a protocol for sending e-mail messages between servers. Most e-mail systems that send mail over the Internet use SMTP to send messages from one server to another; the messages can then be retrieved with an e-mail client using either POP or IMAP. In addition, SMTP is generally used to send messages from a mail client to a mail server. This is why you need to specify both the POP or IMAP server and the SMTP server when you configure your e-mail application.</p>
+<h3 id="in-short-it-used-to-send-emails-to-your-site-users" style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	In short it used to send emails to your site users..!!</h3>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	You can use any SMTP service provider.</p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Your own hosting SMTP server</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Mandrill</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Amazon SES</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Mailgun</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Gmail, Yahoo or some other email provider</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Please note that some hosting providers blocks port 25 or 465 in that case you have change your SMTP email server or contact your hosting provider</span></p>
+</section>
+<section id="own_smtp_server">
+	<div class="page-header"><h3>Own SMTP Server</h3><hr class="notop"></div>
+<h3 id="using-your-own-or-some-smtp-server" style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	Using your own or some SMTP server</h3>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Admin panel setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Settings</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Set &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail driver</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail host</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail port</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail encryption</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail username</span>&lsquo; and &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail password</span>&lsquo;</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		And save your changes.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Or use /.env file setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Login to your FTP account.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Open and Edit&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">.env</code>&nbsp;file.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Copy and paste your server smtp details in the file.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	It will look something like this.</p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">MAIL_DRIVER=smtp
+MAIL_HOST=your-mail-host
+MAIL_PORT=your-mail-port
+MAIL_USERNAME=your-mail-username
+MAIL_PASSWORD=your-mail-password
+MAIL_ENCRYPTION=your-mail-encryption
+</code></pre>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Replace&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mail-host</code>,&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mail-port</code>,&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mail-username</code>,&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mail-password</code>&nbsp;and<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mail-encryption</code>.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Save and Upload the file</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		You are done.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	NOTE:&nbsp;The .env file settings override those of the admin panel.</p>
+</section>
+<section id="mandrill">
+	<div class="page-header"><h3>Mandrill</h3><hr class="notop"></div>
+<h3 id="mandrill-as-smtp" style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	Mandrill as SMTP</h3>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Personally we&nbsp;use mandrill and yes it&rsquo;s free</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Visit mandrill dashboard.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Generate a API key, via this page&nbsp;<a href="https://mandrillapp.com/settings/" style="box-sizing: border-box; outline: 0px !important; text-decoration: none !important; color: rgb(51, 122, 183); background-color: transparent;" target="_blank">https://mandrillapp.com/settings/</a></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Copy the&nbsp;<span style="box-sizing: border-box; font-weight: 700;">key</span>.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Admin panel setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Settings</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Set &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail driver</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mandrill secret</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail host</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail port</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail encryption</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail username</span>&lsquo; and &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail password</span>&lsquo;</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		And save your changes.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Or use /.env file setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Login to your FTP account.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Open and edit&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">.env</code>&nbsp;file.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Remove</li>
+</ul>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">MAIL_DRIVER=smtp
+MAIL_HOST=your-mail-host
+MAIL_PORT=your-mail-port
+MAIL_USERNAME=your-mail-username
+MAIL_PASSWORD=your-mail-password
+MAIL_ENCRYPTION=your-mail-encryption
+</code></pre>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Change it to.</li>
+</ul>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">MAIL_DRIVER=mandrill
+MANDRILL_SECRET=your-mandrill-secret
+MAIL_HOST=your-mandrill-smtp-host
+MAIL_PORT=your-mandrill-smtp-port
+MAIL_USERNAME=your-mandrill-smtp-username
+MAIL_PASSWORD=your-mandrill-smtp-password
+MAIL_ENCRYPTION=your-mandrill-smtp-encryption
+</code></pre>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Replace&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mandrill-secret</code>,&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mandrill-smtp-host</code>,&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mandrill-smtp-port</code>,<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mandrill-smtp-username</code>,&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mandrill-smtp-password</code>&nbsp;and&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mandrill-smtp-encryption</code>.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Save and upload the file.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		You are done.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	NOTE: The .env file settings override those of the admin panel.</p>
+</section>
+<section id="amazon_ses">
+	<div class="page-header"><h3>Amazon SES</h3><hr class="notop"></div>
+<h3 id="amazon-ses-as-smtp" style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	Amazon SES&nbsp;as SMTP</h3>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Admin panel setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Settings</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Set &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail driver</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">SES Key</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">SES secret</span>&lsquo;&nbsp;and &lsquo;<span style="box-sizing: border-box; font-weight: 700;">SES region</span>&lsquo;</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		And save your changes.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Or use /.env file setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Login to your FTP account.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Open and edit&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">.env</code>&nbsp;file.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Remove</li>
+</ul>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">MAIL_DRIVER=smtp
+MAIL_HOST=your-mail-host
+MAIL_PORT=your-mail-port
+MAIL_USERNAME=your-mail-username
+MAIL_PASSWORD=your-mail-password
+MAIL_ENCRYPTION=your-mail-encryption
+</code></pre>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Change it to.</li>
+</ul>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">SES_KEY=your-ses-key
+SES_SECRET=your-ses-secret
+SES_REGION=your-ses-region
+</code></pre>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Replace&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-ses-key</code>,&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-ses-secret</code>&nbsp;and&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-ses-region</code>.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Save and upload the file.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		You are done.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	NOTE: The .env file settings override those of the admin panel.</p>
+</section>
+<section id="mailgun">
+	<div class="page-header"><h3>Mailgun</h3><hr class="notop"></div>
+<h3 id="mailgun-as-smtp" style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	Mailgun&nbsp;as SMTP</h3>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Admin panel setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Settings</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Set &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail driver</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mailgun domain</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mailgun secret</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail host</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail port</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail encryption</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail username</span>&lsquo; and &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Mail password</span>&lsquo;</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		And save your changes.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Or use /.env file setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Login to your FTP account.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Open and edit&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">.env</code>&nbsp;file.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Remove</li>
+</ul>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">MAIL_DRIVER=smtp
+MAIL_HOST=your-mail-host
+MAIL_PORT=your-mail-port
+MAIL_USERNAME=your-mail-username
+MAIL_PASSWORD=your-mail-password
+MAIL_ENCRYPTION=your-mail-encryption
+</code></pre>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Change it to.</li>
+</ul>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">MAIL_DRIVER=mailgun
+MAILGUN_DOMAIN=your-mailgun-domain
+MAILGUN_SECRET=your-mailgun-secret
+MAIL_HOST=your-mailgun-smtp-host
+MAIL_PORT=your-mailgun-smtp-port
+MAIL_USERNAME=your-mailgun-smtp-username
+MAIL_PASSWORD=your-mailgun-smtp-password
+MAIL_ENCRYPTION=your-mailgun-smtp-encryption
+</code></pre>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Replace&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mailgun-domain</code>,&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mailgun-secret</code>,&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mailgun-smtp-host</code>,&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mailgun-smtp-port</code>,&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mailgun-smtp-username</code>,&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mailgun-smtp-password</code>&nbsp;and&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-mailgun-smtp-encryption</code>.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Save and upload the file.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		You are done.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	NOTE:&nbsp;The .env file settings override those of the admin panel.</p>
+</section>
+<section id="payment_providers">
+	<div class="page-header"><h3>Payment Providers</h3><hr class="notop"></div>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	We support these payment providers:</p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Paypal</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	Paypal&nbsp;is one of the best payment gateway in the world, it support all credit cards and accepted in many&nbsp;countries.</p>
+</section>
+<section id="paypal">
+	<div class="page-header"><h3>Paypal</h3><hr class="notop"></div>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Please note that this support is for the&nbsp;Sandbox&nbsp;mode.&nbsp;</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Log in to your PayPal Business account.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Click&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Dashboard</span>&nbsp;in menu.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Create an App by clicking&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Create App</span>&nbsp;(Please check the&nbsp;<a href="https://developer.paypal.com/developer/applications/create" style="box-sizing: border-box; outline: 0px !important; text-decoration: none !important; color: rgb(51, 122, 183); background-color: transparent;" target="_blank">official documentation</a>)</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		In left menu, click&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Accounts</span>&nbsp;to access your tests accounts</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Click the Profile link under the BUSINESS type account</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Click the&nbsp;<span style="box-sizing: border-box; font-weight: 700;">API Credentials</span>&nbsp;tab to get your credentials.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Admin panel setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Settings</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Set &lsquo;<span style="box-sizing: border-box; font-weight: 700;">PayPal mode</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">PayPal username</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">PayPal password</span>&lsquo; and &lsquo;<span style="box-sizing: border-box; font-weight: 700;">PayPal signature</span>&lsquo;</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		And save your changes.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Or use /.env file setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Copy and paste the API username, password, and signature into the /.env configuration file.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Open and edit&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">.env</code>&nbsp;file.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Provide your keys</li>
+</ul>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">PAYMENT_PROVIDER=paypal
+PAYPAL_USERNAME=yourPayPalBusinessE&#97;&#109;&#105;&#108;&#64;&#115;&#111;&#109;&#101;&#116;&#104;&#105;&#110;&#103;&#46;&#99;&#111;&#109;
+PAYPAL_PASSWORD=YourPassword
+PAYPAL_SIGNATURE=YourSignatrue
+</code></pre>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		You are done.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Visit&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin Panel</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Payment</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Packs</span>&nbsp;to set packages and currencies.</li>
+</ul>
+<div>
+	<span style="color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif; font-size: 14px; letter-spacing: 0.3px; line-height: 25px;">NOTE:&nbsp;The .env file settings override those of the admin panel.</span></div>
+</section>
+<section id="social_keys">
+	<div class="page-header"><h3>Social Keys</h3><hr class="notop"></div>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	In this section we will configure Social API key for.</p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Facebook</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Google</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	Before that make sure you have valid account for these social networks.</p>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	You have to setup your admin panel :</p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Settings</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		For Facebook: set &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Facebook Client ID</span>&lsquo;&nbsp;and &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Facebook Client Secret</span>&lsquo;</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		For Google: set &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Google Client ID</span>&lsquo;&nbsp;and &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Google Client Secret</span>&lsquo;</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		And save your changes.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	Or place all the config values and api keys in the&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">.env</code>&nbsp;file.</p>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Facebook Example in .env file</span></p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">FACEBOOK_CLIENT_ID=your-facebook-client_id
+FACEBOOK_CLIENT_SECRET=your-facebook-client_secret
+</code></pre>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Google Example in .env file</span></p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">GOOGLE_CLIENT_ID=your-google-client_id
+GOOGLE_CLIENT_SECRET=your-google-client_secret
+</code></pre>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	&nbsp;</p>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	NOTE:&nbsp;The .env file settings override those of the admin panel.</p>
+</section>
+<section id="facebook">
+	<div class="page-header"><h3>Facebook</h3><hr class="notop"></div>
+<h3 style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	Create your Facebook App</h3>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Visit&nbsp;<a href="https://developers.facebook.com/apps" style="box-sizing: border-box; outline: 0px !important; text-decoration: none !important; color: rgb(51, 122, 183); background-color: transparent;" target="_blank">https://developers.facebook.com/apps</a></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		And&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Create new app</span></li>
+</ul>
+<p style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+	<span style="font-weight: 700; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif; font-size: 14px; letter-spacing: 0.3px; line-height: 25px;">Admin panel setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Settings</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Set &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Facebook Client ID</span>&lsquo;&nbsp;and &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Facebook Client Secret</span>&lsquo;</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		And save your changes.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Or use /.env file setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Login to your FTP account.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Open and edit&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">.env</code>&nbsp;file.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Add this code:</li>
+</ul>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">FACEBOOK_CLIENT_ID=your-facebook-client_id
+FACEBOOK_CLIENT_SECRET=your-facebook-client_secret
+</code></pre>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Replace&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-facebook-client_id</code>&nbsp;and&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-facebook-client_secret</code>.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Save and upload the file.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		You are done.</li>
+</ul>
+</section>
+<section id="google">
+	<div class="page-header"><h3>Google</h3><hr class="notop"></div>
+<h3 style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	<a href="https://developers.google.com/identity/sign-in/web/devconsole-project" style="box-sizing: border-box; outline: 0px !important; text-decoration: none !important; color: rgb(48, 48, 48) !important; background-color: transparent;" target="_blank">Google OAuth Client ID</a></h3>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Admin panel setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Settings</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Set &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Google Client ID</span>&lsquo;&nbsp;and &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Google Client Secret</span>&lsquo;</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		And save your changes.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Or use /.env file setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Login to your FTP account.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Open and edit&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">.env</code>&nbsp;file.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Add this code:</li>
+</ul>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">GOOGLE_CLIENT_ID=your-google-client_id
+GOOGLE_CLIENT_SECRET=your-google-client_secret
+</code></pre>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Replace&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-google-client_id</code>&nbsp;and&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-google-client_secret</code>.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Save and upload the file.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		You are done.</li>
+</ul>
+<h3 style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	<a href="https://developers.google.com/maps/documentation/embed/guide?hl=fr" style="box-sizing: border-box; outline: 0px !important; text-decoration: none !important; color: rgb(48, 48, 48) !important; background-color: transparent;" target="_blank">Google Maps Embed API</a></h3>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Admin panel setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Settings</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Set&nbsp;&lsquo;<span style="box-sizing: border-box; font-weight: 700;">Google Maps key</span>&lsquo;</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		And save your changes.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Or use /.env file setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Login to your FTP account.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Open and edit&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">.env</code>&nbsp;file.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Add this code:</li>
+</ul>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">GOOGLE_MAPS_API_KEY=your-googlemaps-key
+</code></pre>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Replace&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-googlemaps-key</code>.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Save and upload the file.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		You are done.</li>
+</ul>
+<h3 style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	<a href="https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key" style="box-sizing: border-box; outline: 0px !important; text-decoration: none !important; color: rgb(48, 48, 48) !important; background-color: transparent;" target="_blank">Google Maps API Key</a></h3>
+</section>
+<section id="captcha">
+	<div class="page-header"><h3>Captcha</h3><hr class="notop"></div>
+<h3 id="recaptcha-key" style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	Recaptcha Key</h3>
+<h3 id="what-is-recaptcha" style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	What is recaptcha</h3>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	reCAPTCHA is a free CAPTCHA service that helps protect your site against spam, malicious registrations and other forms of attacks where computers try to disguise themselves as a human. reCAPTCHA comes in the form of a widget that you can easily add to your blog, forum, registration.</p>
+<h3 id="how-to-setup" style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	How to setup.</h3>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Visit&nbsp;<a href="https://www.google.com/recaptcha/admin" style="box-sizing: border-box; outline: 0px !important; text-decoration: none !important; color: rgb(51, 122, 183); background-color: transparent;" target="_blank">https://www.google.com/recaptcha/admin</a></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Register and get public and secret key for your website</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Admin panel setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Settings</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Turn ON or OFF &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Recaptcha activation</span>&lsquo;</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Set &lsquo;<span style="box-sizing: border-box; font-weight: 700;">reCAPTCHA public key</span>&lsquo; and &lsquo;<span style="box-sizing: border-box; font-weight: 700;">reCAPTCHA private key</span>&lsquo;</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		And save your&nbsp;changes.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Or use /.env file setup</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Login to your FTP account</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Open&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">.env</code>&nbsp;file.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Provide the keys there.</li>
+</ul>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">RECAPTCHA_PUBLIC_KEY=your-recaptcha-public_key
+RECAPTCHA_PRIVATE_KEY=your-recaptcha-private_key
+</code></pre>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Replace&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-recaptcha-public_key</code>&nbsp;and&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">your-recaptcha-private_key</code>.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Save the file.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		You are done.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+	<span style="color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif; font-size: 14px; letter-spacing: 0.3px; line-height: 25px;">NOTE:&nbsp;The .env file settings override those of the admin panel.</span></p>
+</section>
+<section id="image_processing">
+	<div class="page-header"><h3>Image Processing</h3><hr class="notop"></div>
+<h3 id="image-setting" style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	Image Setting</h3>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	We support for two image processor.</p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		GD</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Imagick</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	GD is very basic image resizing driver for PHP and only to used on basic website. It has memory issues and doesn&rsquo;t perform well at all conditions.</p>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	If you want your site for pro-photography or better quality images we prefer you to use&nbsp;<span style="box-sizing: border-box; font-weight: 700;">imagick</span>&nbsp;instead for better quality results.</p>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	Please make sure that your server has&nbsp;<span style="box-sizing: border-box; font-weight: 700;">imagick</span>&nbsp;installed.</p>
+</section>
+<section id="imagick">
+	<div class="page-header"><h3>Imagick</h3><hr class="notop"></div>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">First make sure that you have imagick installed on your server, if not then contact your hosting provider.</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Login to your FTP account.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Open and edit&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">.env</code>&nbsp;file.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Search</span></p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">IMAGE_DRIVER=gd
+</code></pre>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Change it to</span></p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">IMAGE_DRIVER=imagick
+</code></pre>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		You are done.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		<a href="http://www.bedigit.com/doc/image-processing/clear-cache/" style="box-sizing: border-box; outline: 0px !important; text-decoration: none !important; color: rgb(51, 122, 183); background-color: transparent;">Clear Cache (Optional)</a></li>
+</ul>
+</section>
+<section id="clear_cache">
+	<div class="page-header"><h3>Clear Cache</h3><hr class="notop"></div>
+<h3 id="clear-all-image-cache" style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	Clear All Image Cache</h3>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Caution..!! Your site might face down time until all images are re-cached</span></p>
+<h3 id="for-those-who-are-not-using-cloud-cdn" style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	For those who are not using cloud CDN</h3>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Login to your FTP.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Visit&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">storage/framework/cache</code></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Delete all file from it.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Visit your site in browser and refresh it.</li>
+</ul>
+<h3 id="for-those-who-using-cloud-cdn" style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	For those who using cloud CDN</h3>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Login to cloud server</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Visit&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">cache</code>&nbsp;folder</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Delete all file from it.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Now login to your website FTP account</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Visit&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">storage/framework/cache</code></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Delete all file from it.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Visit your site in browser and refresh it for 10-15 times.</li>
+</ul>
+</section>
+<section id="memory_settings">
+	<div class="page-header"><h3>Memory Settings</h3><hr class="notop"></div>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	Image manipulation in PHP is a very memory consuming task. Since most tasks in PHP don&rsquo;t exhaust default memory limits, you have to make sure your PHP configuration is able to allocate enough memory to handle large images.</p>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	The following php.ini directives are important.</p>
+<h3 style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	memory_limit</h3>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	Sets a maximum amount of memory in bytes that a script is allowed to allocate. Resizing a 3000 x 2000 pixel image to 300 x 200 may take up to 32MB memory.</p>
+<h3 style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	upload_max_filesize</h3>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	If you&rsquo;re planing to upload large images, verify that this setting for the maximum size of file uploads fits your needs.</p>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	Read more in the official PHP documentation for:</p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		<a href="http://www.php.net/manual/en/ini.core.php#ini.memory-limit" style="box-sizing: border-box; outline: 0px !important; text-decoration: none !important; color: rgb(51, 122, 183); background-color: transparent;" target="_blank">memory_limit</a></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		<a href="http://www.php.net/manual/en/ini.core.php#ini.upload-max-filesize" style="box-sizing: border-box; outline: 0px !important; text-decoration: none !important; color: rgb(51, 122, 183); background-color: transparent;" target="_blank">upload_max_filesize</a></li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	It&rsquo;s possible to set these directives in your&nbsp;<a href="http://www.php.net/manual/en/ini.core.php" style="box-sizing: border-box; outline: 0px !important; text-decoration: none !important; color: rgb(51, 122, 183); background-color: transparent;" target="_blank">php.ini</a>&nbsp;or at runtime with&nbsp;<a href="http://www.php.net/manual/en/function.ini-set.php" style="box-sizing: border-box; outline: 0px !important; text-decoration: none !important; color: rgb(51, 122, 183); background-color: transparent;" target="_blank">ini_set</a>.</p>
+</section>
+<section id="geo_location">
+	<div class="page-header"><h3>Geo Location</h3><hr class="notop"></div>
+<h3 style="box-sizing: border-box; line-height: 30px; font-family: inherit; margin: 13px 0px 20px; font-size: 30px !important; letter-spacing: 1px !important; font-weight: 500 !important; color: rgb(54, 61, 64) !important;">
+	How can I enable Geo location?</h3>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to:&nbsp;<a href="https://dev.maxmind.com/geoip/geoip2/geolite2/" style="box-sizing: border-box; outline: 0px !important; text-decoration: none !important; color: rgb(51, 122, 183); background-color: transparent;" target="_blank">https://dev.maxmind.com/geoip/geoip2/geolite2/</a></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Download the binary version of the &lsquo;GeoLite2 City&rsquo; database (or use&nbsp;<a href="http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz" style="box-sizing: border-box; outline: 0px !important; text-decoration: none !important; color: rgb(51, 122, 183); background-color: transparent;" target="_blank">this link</a>)</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Extract it in the Maxmind database folder at&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">/database/maxmind/</code>&nbsp;like this&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">/database/maxmind/GeoLite2-City.mmdb</code></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Visit the&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin panel</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Settings</span>&nbsp;and turn &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Geolocation activation</span>&lsquo; to ON.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		You are done.</li>
+</ul>
+</section>
+<section id="how_to">
+	<div class="page-header"><h3>How To</h3><hr class="notop"></div>
+<h4 id="how_to_span_style"box_sizing_border_box_font_weight_700"how_can_i_set_nbspspan_class"s1"_style"box_sizing_border_box"the_default_country_span_span"><span style="box-sizing: border-box; font-weight: 700;">How can I set&nbsp;<span class="s1" style="box-sizing: border-box;">the Default country?</span></span></h4>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Settings</span>&nbsp;and set &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Default Country</span>&lsquo; with your country code (only ISO alpha-2 codes are accepted).</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Now, go to our&nbsp;<a href="http://jobclass.bedigit.com/download/database" style="box-sizing: border-box; outline: 0px !important; text-decoration: none !important; color: rgb(51, 122, 183); background-color: transparent;">Geonames download page</a>&nbsp;to download your country&rsquo;s&nbsp;database.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Unpack the downloaded file (if needed)&nbsp;and import it into your JobClass database.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your cache folder at&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">/storage/framework/cache</code>&nbsp;and delete all cache files.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Your are done.</li>
+</ul>
+<h4 id="how_to_span_style"box_sizing_border_box_font_weight_700"how_can_i_set_nbspspan_class"s1"_style"box_sizing_border_box"the_default_currency_span_span"><span style="box-sizing: border-box; font-weight: 700;">How can I set&nbsp;<span class="s1" style="box-sizing: border-box;">the Default currency?</span></span></h4>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		The default currency will be that of the current country, except the Packs&rsquo;s currency&nbsp;that you can set from&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Payments</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Packs</span>.</li>
+</ul>
+<h4 id="how_to_span_style"box_sizing_border_box_font_weight_700"how_can_i_nbspspan_class"s1"_style"box_sizing_border_box"setup_my_nbsppaypal_account_span_span"><span style="box-sizing: border-box; font-weight: 700;">How can I&nbsp;<span class="s1" style="box-sizing: border-box;">setup my&nbsp;paypal account?</span></span></h4>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Settings</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Set &lsquo;<span style="box-sizing: border-box; font-weight: 700;">PayPal mode</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">PayPal username</span>&lsquo;, &lsquo;<span style="box-sizing: border-box; font-weight: 700;">PayPal password</span>&lsquo; and &lsquo;<span style="box-sizing: border-box; font-weight: 700;">PayPal signature</span>&lsquo;</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		And save your changes.</li>
+</ul>
+<h4 id="how_to_span_style"box_sizing_border_box_font_weight_700"how_can_i_setup_the_packs_plans_span"><span style="box-sizing: border-box; font-weight: 700;">How can I setup the packs/Plans?</span></h4>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Payments</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Packs</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Select a pack and edit it</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		NOTE: You can add new packs or delete current packs in the actual&nbsp;version.</li>
+</ul>
+<h4 id="how_to_span_style"box_sizing_border_box_font_weight_700"how_can_i_setup_the_advertising_code_eg_adsense_span"><span style="box-sizing: border-box; font-weight: 700;">How can I setup the advertising code (e.g. Adsense)?</span></h4>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Advertisings</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		(Only&nbsp;if there is no record) Please import the app database tables&nbsp;from<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">/database/sql/data/required/app-data.sql</code>&nbsp;and go again to&nbsp;JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin panel</span>&nbsp;-&gt;<span style="box-sizing: border-box; font-weight: 700;">Advertisings</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Edit &lsquo;<span style="box-sizing: border-box; font-weight: 700;">top</span>&lsquo; and &lsquo;<span style="box-sizing: border-box; font-weight: 700;">bottom</span>&lsquo; code.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		The code will be displayed on the search results pages and the ads page.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Your are done.</li>
+</ul>
+<h4 id="how_to_span_style"box_sizing_border_box_font_weight_700"how_can_i_setup_recaptcha_span"><span style="box-sizing: border-box; font-weight: 700;">How can I setup Recaptcha?</span></h4>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Settings</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Turn ON or OFF &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Recaptcha activation</span>&lsquo;</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Set &lsquo;<span style="box-sizing: border-box; font-weight: 700;">reCAPTCHA public key</span>&lsquo; and &lsquo;<span style="box-sizing: border-box; font-weight: 700;">reCAPTCHA private key</span>&lsquo;</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		And save your&nbsp;changes.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	More options doc coming soon&hellip;</p>
+</section>
+<section id="languages">
+	<div class="page-header"><h3>Languages</h3><hr class="notop"></div>
+<h4 id="languages_span_style"box_sizing_border_box_font_weight_700"how_can_i_nbspspan_class"s1"_style"box_sizing_border_box"add_new_languages_span_span"><span style="box-sizing: border-box; font-weight: 700;">How can I&nbsp;<span class="s1" style="box-sizing: border-box;">add new languages?</span></span></h4>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">International</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Translations</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Languages</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Click &lsquo;<span style="box-sizing: border-box; font-weight: 700;">Add language</span>&lsquo;</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Edit your new language with&nbsp;checking &lsquo;Active&rsquo; checkbox and save it.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Now,&nbsp;go to the translation folder at&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">/resources/lang</code></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Duplicate the folder&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">/resources/lang/en/</code>&nbsp;to&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">/resources/lang/&lt;newCodeLanguage&gt;/</code></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to the language config file at&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">/config/laravellocalization.php</code>&nbsp;and uncomment the line of your language (e.g. uncomment the line 145 for Polish language), or add a new line to your language (if it doesn&rsquo;t exist).</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Now, go to &lsquo;How can I edit translation?&rsquo; below to translate your new language.</li>
+</ul>
+<h4 id="languages_span_style"box_sizing_border_box_font_weight_700"how_can_i_nbspeditspan_class"s1"_style"box_sizing_border_box"_nbsplanguages_information_eg_name,_abbr,_etc_span_span"><span style="box-sizing: border-box; font-weight: 700;">How can I&nbsp;edit<span class="s1" style="box-sizing: border-box;">&nbsp;languages information (e.g. Name, Abbr, etc.)?</span></span></h4>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">International</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Translations</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Languages</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Select a language and edit their informations.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		If you change the language&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">abbr</code>&nbsp;field (i.e. language code), don&rsquo;t forget to rename the language folder in&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">/resources/lang</code>&nbsp;like this&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">/resources/lang/&lt;newLanguageCode&gt;</code>.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Save all of changes</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		You are done.</li>
+</ul>
+<h4 id="languages_span_style"box_sizing_border_box_font_weight_700"how_can_i_nbspeditspan_class"s1"_style"box_sizing_border_box"_nbsptranslations_span_span"><span style="box-sizing: border-box; font-weight: 700;">How can I&nbsp;edit<span class="s1" style="box-sizing: border-box;">&nbsp;translations?</span></span></h4>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to the translation folder at&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">/resources/lang&nbsp;</code>(each language has his&nbsp;language code as&nbsp;folder name).</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		(New language)&nbsp;Duplicate the folder&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">/resources/lang/en/</code>to&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">/resources/lang/&lt;newLanguageCode&gt;/</code></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to&nbsp;the folder of the language you wish to translate&nbsp;and their files&nbsp;(e.g.&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">global.php</code>&nbsp;contains 80% of the site&rsquo;s texts,&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">page.php</code>&nbsp;contains the text of the static pages, etc.).</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Keep as English language reference. You can copy files from English to other languages. But never the reverse.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		If a language file is missing in other languages, copied the English version and translate it.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		To translate a file, you must change the values and not the keys of PHP array.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Save your files on your server.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Your are done.</li>
+</ul>
+<h4 id="languages_span_style"box_sizing_border_box_font_weight_700"how_can_i_nbspchange_the_default_language_span"><span style="box-sizing: border-box; font-weight: 700;">How can I&nbsp;change the default language?</span></h4>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Before removing English as the default language, you must firstly copy all the files of<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">/resources/lang/en/</code>&nbsp;folder to&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">/resources/lang/&lt;newDefaultLanguageCode&gt;/</code>.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Open the file&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">/config/app.php</code></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Change the&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">locale</code>&nbsp;value to your&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">&lt;newDefaultCodeLanguage&gt;</code>&nbsp;(e.g.&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">de</code>)</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Change the&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">fallback_locale</code>&nbsp;value to your&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">&lt;newDefaultCodeLanguage&gt;</code>&nbsp;(e.g.&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">de</code>)</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Save your files on your server.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Your are done.</li>
+</ul>
+<h4 id="languages_span_style"box_sizing_border_box_font_weight_700"how_can_ispan_class"s1"_style"box_sizing_border_box"_nbspdisable_languages_span_span"><span style="box-sizing: border-box; font-weight: 700;">How can I<span class="s1" style="box-sizing: border-box;">&nbsp;disable languages?</span></span></h4>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">International</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Translations</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Languages</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Select a language and edit&nbsp;it.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Uncheck &lsquo;Active&rsquo; checkbox and save.</li>
+</ul>
+<h4 id="languages_span_style"box_sizing_border_box_font_weight_700"how_can_ispan_class"s1"_style"box_sizing_border_box"_nbspdelete_languages_span_span"><span style="box-sizing: border-box; font-weight: 700;">How can I<span class="s1" style="box-sizing: border-box;">&nbsp;delete languages?</span></span></h4>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Go to your JobClass&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Admin</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">International</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Translations</span>&nbsp;-&gt;&nbsp;<span style="box-sizing: border-box; font-weight: 700;">Languages</span></li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Select a language and delete it.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Don&rsquo;t forget to remove the language files in the folder&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">/resources/lang/&lt;newLanguageCode&gt;</code>.</li>
+</ul>
+</section>
+<section id="debug_mode">
+	<div class="page-header"><h3>Debug Mode</h3><hr class="notop"></div>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	Debug mode will help you to track the error on your website. It is not all preferred to turn the debug mode on live site for very long time.</p>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">How to turn debug mode on</span></p>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Login to you FTP account.</li>
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Open and edit&nbsp;<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">.env</code>&nbsp;file.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">Change</span></p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">APP_DEBUG=false
+</code></pre>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<span style="box-sizing: border-box; font-weight: 700;">To</span></p>
+<pre style="box-sizing: border-box; overflow: auto; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 13px; padding: 9.5px; margin-top: 0px; margin-bottom: 10px; line-height: 1.42857; color: rgb(51, 51, 51); word-break: break-all; word-wrap: break-word; border-color: rgb(204, 204, 204); border-radius: 4px; background-color: rgb(245, 245, 245);">
+<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: inherit; padding: 0px; color: inherit; border-radius: 0px; white-space: pre-wrap; background-color: transparent;">APP_DEBUG=true
+</code></pre>
+<ul style="box-sizing: border-box; margin: 0px 0px 0px 50px; font-size: 14px; padding-right: 0px; padding-bottom: 20px; padding-left: 0px; line-height: 25px; list-style-type: square; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<li style="box-sizing: border-box; line-height: 24px; letter-spacing: 0.3px; list-style: disc; margin: 0px 0px 5px;">
+		Save and upload the file.</li>
+</ul>
+<p style="box-sizing: border-box; line-height: 25px; letter-spacing: 0.3px; margin: 0px; font-size: 14px; padding: 0px 0px 20px; color: rgb(51, 51, 51); font-family: &quot;Open Sans&quot;, sans-serif;">
+	<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">false</code>&nbsp;means debug mode is OFF<br style="box-sizing: border-box;">
+	<code style="box-sizing: border-box; font-family: Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace; font-size: 12.6px; padding: 2px 4px; color: rgb(199, 37, 78); border-radius: 4px; background-color: rgb(249, 242, 244);">true</code>&nbsp;means debug mode is ON</p>
+</section>
+
+	</div>
+</body>
+</html>
